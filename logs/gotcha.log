@@ -1,0 +1,4 @@
+mlx-community/Qwen3-0.6B-4bit        spec=False cache trimmable=True  tokens=120 rejections~120  max|dlogp|= 0.298  mean|dlogp|=0.0642  first token with |dlogp|>0.5: None
+mlx-community/Qwen3-0.6B-4bit        spec=True  cache trimmable=True  tokens=120 rejections~ 80  max|dlogp|= 0.300  mean|dlogp|=0.0723  first token with |dlogp|>0.5: None
+mlx-community/Qwen3.5-0.8B-4bit      spec=False cache trimmable=False tokens=120 rejections~120  max|dlogp|= 0.275  mean|dlogp|=0.0566  first token with |dlogp|>0.5: None
+mlx-community/Qwen3.5-0.8B-4bit      spec=True  cache trimmable=False tokens=120 rejections~114  max|dlogp|= 9.705  mean|dlogp|=1.9354  first token with |dlogp|>0.5: 1

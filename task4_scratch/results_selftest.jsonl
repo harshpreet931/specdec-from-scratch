@@ -1,0 +1,9 @@
+{"method": "greedy", "prompt": "rewrite", "rep": 0, "tokens": 96, "secs": 0.341303916007746, "tps": 281.27424121855444, "target_passes": 96}
+{"method": "spec_g4", "prompt": "rewrite", "rep": 0, "tokens": 96, "secs": 0.43154458299977705, "tps": 222.45673745382084, "target_passes": 20, "accepted": 80, "drafted": 80}
+{"method": "lookup_k8", "prompt": "rewrite", "rep": 0, "tokens": 96, "secs": 0.17501695800456218, "tps": 548.5182755690312, "target_passes": 19, "accepted": 78, "drafted": 114}
+{"method": "sample_g4", "prompt": "rewrite", "rep": 0, "tokens": 96, "secs": 0.45947670901659876, "tps": 208.93333245435943, "target_passes": 20, "accepted": 80, "drafted": 80, "exp_accept_rejection": 0.999951171875, "exp_accept_match": 0.99609375}
+{"method": "greedy", "prompt": "creative", "rep": 0, "tokens": 96, "secs": 0.31860949998372234, "tps": 301.30928300915264, "target_passes": 96}
+{"method": "spec_g4", "prompt": "creative", "rep": 0, "tokens": 96, "secs": 0.3997744160005823, "tps": 240.13542677493442, "target_passes": 20, "accepted": 80, "drafted": 80}
+{"method": "lookup_k8", "prompt": "creative", "rep": 0, "tokens": 96, "secs": 0.4965330839913804, "tps": 193.3405911813653, "target_passes": 89, "accepted": 7, "drafted": 271}
+{"method": "sample_g4", "prompt": "creative", "rep": 0, "tokens": 96, "secs": 0.41162749999784864, "tps": 233.22056956957866, "target_passes": 20, "accepted": 80, "drafted": 80, "exp_accept_rejection": 0.99912109375, "exp_accept_match": 0.59798583984375}
+{"identity": {"spec_g4|rewrite": null, "spec_g4|creative": 2, "lookup_k8|rewrite": null, "lookup_k8|creative": 2}}

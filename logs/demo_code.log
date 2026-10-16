@@ -1,0 +1,19 @@
+[1mSpeculative decoding on Apple M4 Pro[0m
+  target: mlx-community/Qwen3-8B-4bit
+  draft : mlx-community/Qwen3-0.6B-4bit   (guesses 2 tokens ahead)
+
+[2mmodels loaded + warmed up in 3.2s[0m
+
+[1mPrompt:[0m Write a Python function `merge_intervals(intervals)` that merges overlapping intervals. Include a docstring an...
+
++--------------------------------------------------+
+|                           tokens    tok/s    time |
+| Big model alone              256     52.8    4.9s |
+| + draft (N=2)                256     70.0    3.7s |
++--------------------------------------------------+
+| [1mSpeedup                                     1.32x[0m |
+| Draft tokens accepted                 159 / 256  |
+| Tokens per big-model pass                    2.64 |
+| Output identical                              yes |
++--------------------------------------------------+
+[2mtok/s = median of 3 runs (mlx_lm generation tps, excludes prompt processing)[0m

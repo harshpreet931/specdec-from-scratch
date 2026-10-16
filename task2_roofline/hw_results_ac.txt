@@ -1,0 +1,6 @@
+mlx 0.31.1  device: Apple M4 Pro
+matmul 4096x4096 mlx.core.float32:  6.49 TFLOP/s
+matmul 4096x4096 mlx.core.bfloat16:  7.46 TFLOP/s
+matmul 4096x4096 mlx.core.float16:  7.46 TFLOP/s
+read  2.0 GB (sum)  :  243.6 GB/s
+read+write (x*2)    :  219.4 GB/s

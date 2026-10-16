@@ -1,0 +1,237 @@
+== correctness (greedy) ==
+code      our greedy vs mlx_lm greedy: IDENTICAL (256 tok)
+rewrite   our greedy vs mlx_lm greedy: IDENTICAL (125 tok)
+creative  our greedy vs mlx_lm greedy: IDENTICAL (256 tok)
+math      our greedy vs mlx_lm greedy: IDENTICAL (256 tok)
+code_edit our greedy vs mlx_lm greedy: IDENTICAL (165 tok)
+spec_g2    code     : IDENTICAL  acc 159/198  passes 99
+spec_g2    rewrite  : IDENTICAL  acc 84/84  passes 42
+spec_g2    creative : IDENTICAL  acc 98/316  passes 158
+spec_g2    math     : IDENTICAL  acc 148/220  passes 110
+spec_g2    code_edit: IDENTICAL  acc 104/124  passes 62
+spec_g3    code     : IDENTICAL  acc 177/246  passes 82
+spec_g3    rewrite  : IDENTICAL  acc 94/96  passes 32
+spec_g3    creative : IDENTICAL  acc 105/453  passes 151
+spec_g3    math     : IDENTICAL  acc 169/270  passes 90
+spec_g3    code_edit: IDENTICAL  acc 119/141  passes 47
+spec_g4    code     : IDENTICAL  acc 186/280  passes 70
+spec_g4    rewrite  : IDENTICAL  acc 100/100  passes 25
+spec_g4    creative : IDENTICAL  acc 107/596  passes 149
+spec_g4    math     : IDENTICAL  acc 180/320  passes 80
+spec_g4    code_edit: IDENTICAL  acc 127/156  passes 39
+spec_g6    code     : IDENTICAL  acc 202/342  passes 57
+spec_g6    rewrite  : IDENTICAL  acc 108/108  passes 18
+spec_g6    creative : IDENTICAL  acc 109/882  passes 147
+spec_g6    math     : IDENTICAL  acc 190/432  passes 72
+spec_g6    code_edit: IDENTICAL  acc 135/186  passes 31
+spec_g8    code     : IDENTICAL  acc 208/400  passes 50
+spec_g8    rewrite  : IDENTICAL  acc 112/112  passes 14
+spec_g8    creative : DIFFERS at token 108  acc 117/1096  passes 137
+spec_g8    math     : DIFFERS at token 83  acc 194/504  passes 63
+spec_g8    code_edit: IDENTICAL  acc 138/224  passes 28
+look_k8n1  code     : IDENTICAL  acc 53/769  passes 203
+look_k8n1  rewrite  : IDENTICAL  acc 97/154  passes 29
+look_k8n1  creative : DIFFERS at token 108  acc 9/873  passes 247
+look_k8n1  math     : DIFFERS at token 84  acc 71/858  passes 185
+look_k8n1  code_edit: DIFFERS at token 3  acc 85/383  passes 72
+look_k8n2  code     : IDENTICAL  acc 33/289  passes 223
+look_k8n2  rewrite  : IDENTICAL  acc 91/136  passes 35
+look_k8n2  creative : DIFFERS at token 108  acc 3/216  passes 253
+look_k8n2  math     : DIFFERS at token 83  acc 55/349  passes 203
+look_k8n2  code_edit: IDENTICAL  acc 75/189  passes 91
+look_k3n2  code     : IDENTICAL  acc 29/126  passes 227
+look_k3n2  rewrite  : IDENTICAL  acc 77/93  passes 49
+look_k3n2  creative : IDENTICAL  acc 3/66  passes 253
+look_k3n2  math     : IDENTICAL  acc 52/135  passes 204
+look_k3n2  code_edit: IDENTICAL  acc 63/108  passes 103
+rep0 code      greedy     256 tok   49.4 tok/s  passes 256
+rep0 code      spec_g2    256 tok   65.5 tok/s  passes 99
+rep0 code      spec_g3    256 tok   61.1 tok/s  passes 82
+rep0 code      spec_g4    256 tok   58.3 tok/s  passes 70
+rep0 code      spec_g6    256 tok   51.9 tok/s  passes 57
+rep0 code      spec_g8    256 tok   44.3 tok/s  passes 50
+rep0 code      look_k8n1  256 tok   23.7 tok/s  passes 203
+rep0 code      look_k8n2  256 tok   36.5 tok/s  passes 223
+rep0 code      look_k3n2  256 tok   46.9 tok/s  passes 227
+rep0 code      sample_g3  256 tok   61.6 tok/s  passes 79
+rep0 rewrite   greedy     125 tok   44.2 tok/s  passes 125
+rep0 rewrite   spec_g2    125 tok   61.8 tok/s  passes 42
+rep0 rewrite   spec_g3    125 tok   61.4 tok/s  passes 32
+rep0 rewrite   spec_g4    125 tok   64.5 tok/s  passes 25
+rep0 rewrite   spec_g6    125 tok   64.6 tok/s  passes 18
+rep0 rewrite   spec_g8    125 tok   62.6 tok/s  passes 14
+rep0 rewrite   look_k8n1  125 tok   54.7 tok/s  passes 29
+rep0 rewrite   look_k8n2  125 tok   55.6 tok/s  passes 35
+rep0 rewrite   look_k3n2  125 tok   64.3 tok/s  passes 49
+rep0 rewrite   sample_g3  125 tok   62.6 tok/s  passes 32
+rep0 creative  greedy     256 tok   49.6 tok/s  passes 256
+rep0 creative  spec_g2    256 tok   42.1 tok/s  passes 158
+rep0 creative  spec_g3    256 tok   33.7 tok/s  passes 151
+rep0 creative  spec_g4    256 tok   27.8 tok/s  passes 149
+rep0 creative  spec_g6    256 tok   20.3 tok/s  passes 147
+rep0 creative  spec_g8    254 tok   16.3 tok/s  passes 137
+rep0 creative  look_k8n1  256 tok   20.3 tok/s  passes 247
+rep0 creative  look_k8n2  256 tok   36.6 tok/s  passes 253
+rep0 creative  look_k3n2  256 tok   45.6 tok/s  passes 253
+rep0 creative  sample_g3  256 tok   34.8 tok/s  passes 146
+rep0 math      greedy     256 tok   48.7 tok/s  passes 256
+rep0 math      spec_g2    256 tok   58.8 tok/s  passes 110
+rep0 math      spec_g3    256 tok   55.5 tok/s  passes 90
+rep0 math      spec_g4    256 tok   50.8 tok/s  passes 80
+rep0 math      spec_g6    256 tok   41.2 tok/s  passes 72
+rep0 math      spec_g8    256 tok   35.2 tok/s  passes 63
+rep0 math      look_k8n1  256 tok   22.8 tok/s  passes 185
+rep0 math      look_k8n2  256 tok   35.6 tok/s  passes 203
+rep0 math      look_k3n2  256 tok   49.5 tok/s  passes 204
+rep0 math      sample_g3  256 tok   57.1 tok/s  passes 86
+rep0 code_edit greedy     165 tok   45.8 tok/s  passes 165
+rep0 code_edit spec_g2    165 tok   60.7 tok/s  passes 62
+rep0 code_edit spec_g3    165 tok   61.4 tok/s  passes 47
+rep0 code_edit spec_g4    165 tok   60.4 tok/s  passes 39
+rep0 code_edit spec_g6    165 tok   55.7 tok/s  passes 31
+rep0 code_edit spec_g8    165 tok   47.0 tok/s  passes 28
+rep0 code_edit look_k8n1  156 tok   30.9 tok/s  passes 72
+rep0 code_edit look_k8n2  165 tok   43.8 tok/s  passes 91
+rep0 code_edit look_k3n2  165 tok   53.5 tok/s  passes 103
+rep0 code_edit sample_g3  165 tok   59.4 tok/s  passes 48
+rep1 code      greedy     256 tok   49.6 tok/s  passes 256
+rep1 code      spec_g2    256 tok   66.4 tok/s  passes 99
+rep1 code      spec_g3    256 tok   62.0 tok/s  passes 82
+rep1 code      spec_g4    256 tok   58.8 tok/s  passes 70
+rep1 code      spec_g6    256 tok   51.8 tok/s  passes 57
+rep1 code      spec_g8    256 tok   44.1 tok/s  passes 50
+rep1 code      look_k8n1  256 tok   22.7 tok/s  passes 203
+rep1 code      look_k8n2  256 tok   37.0 tok/s  passes 223
+rep1 code      look_k3n2  256 tok   47.8 tok/s  passes 227
+rep1 code      sample_g3  256 tok   53.6 tok/s  passes 90
+rep1 rewrite   greedy     125 tok   44.9 tok/s  passes 125
+rep1 rewrite   spec_g2    125 tok   67.6 tok/s  passes 42
+rep1 rewrite   spec_g3    125 tok   66.8 tok/s  passes 32
+rep1 rewrite   spec_g4    125 tok   68.7 tok/s  passes 25
+rep1 rewrite   spec_g6    125 tok   43.9 tok/s  passes 18
+rep1 rewrite   spec_g8    125 tok   42.7 tok/s  passes 14
+rep1 rewrite   look_k8n1  125 tok   42.9 tok/s  passes 29
+rep1 rewrite   look_k8n2  125 tok   42.3 tok/s  passes 35
+rep1 rewrite   look_k3n2  125 tok   48.4 tok/s  passes 49
+rep1 rewrite   sample_g3  125 tok   48.7 tok/s  passes 32
+rep1 creative  greedy     256 tok   46.2 tok/s  passes 256
+rep1 creative  spec_g2    256 tok   43.8 tok/s  passes 158
+rep1 creative  spec_g3    256 tok   28.9 tok/s  passes 151
+rep1 creative  spec_g4    256 tok   27.2 tok/s  passes 149
+rep1 creative  spec_g6    256 tok   21.3 tok/s  passes 147
+rep1 creative  spec_g8    254 tok   16.4 tok/s  passes 137
+rep1 creative  look_k8n1  256 tok   18.7 tok/s  passes 247
+rep1 creative  look_k8n2  256 tok   35.6 tok/s  passes 253
+rep1 creative  look_k3n2  256 tok   46.2 tok/s  passes 253
+rep1 creative  sample_g3  256 tok   36.4 tok/s  passes 144
+rep1 math      greedy     256 tok   45.6 tok/s  passes 256
+rep1 math      spec_g2    256 tok   59.5 tok/s  passes 110
+rep1 math      spec_g3    256 tok   45.7 tok/s  passes 90
+rep1 math      spec_g4    256 tok   44.8 tok/s  passes 80
+rep1 math      spec_g6    256 tok   36.3 tok/s  passes 72
+rep1 math      spec_g8    256 tok   33.2 tok/s  passes 63
+rep1 math      look_k8n1  256 tok   18.6 tok/s  passes 185
+rep1 math      look_k8n2  256 tok   34.5 tok/s  passes 203
+rep1 math      look_k3n2  256 tok   49.5 tok/s  passes 204
+rep1 math      sample_g3  256 tok   54.0 tok/s  passes 86
+rep1 code_edit greedy     165 tok   42.2 tok/s  passes 165
+rep1 code_edit spec_g2    165 tok   55.4 tok/s  passes 62
+rep1 code_edit spec_g3    165 tok   48.4 tok/s  passes 47
+rep1 code_edit spec_g4    165 tok   50.7 tok/s  passes 39
+rep1 code_edit spec_g6    165 tok   46.7 tok/s  passes 31
+rep1 code_edit spec_g8    165 tok   41.1 tok/s  passes 28
+rep1 code_edit look_k8n1  156 tok   29.0 tok/s  passes 72
+rep1 code_edit look_k8n2  165 tok   36.3 tok/s  passes 91
+rep1 code_edit look_k3n2  165 tok   36.2 tok/s  passes 103
+rep1 code_edit sample_g3  152 tok   40.2 tok/s  passes 46
+rep2 code      greedy     256 tok   38.1 tok/s  passes 256
+rep2 code      spec_g2    256 tok   44.2 tok/s  passes 99
+rep2 code      spec_g3    256 tok   44.3 tok/s  passes 82
+rep2 code      spec_g4    256 tok   48.0 tok/s  passes 70
+rep2 code      spec_g6    256 tok   48.2 tok/s  passes 57
+rep2 code      spec_g8    256 tok   43.5 tok/s  passes 50
+rep2 code      look_k8n1  256 tok   23.6 tok/s  passes 203
+rep2 code      look_k8n2  256 tok   37.1 tok/s  passes 223
+rep2 code      look_k3n2  256 tok   46.3 tok/s  passes 227
+rep2 code      sample_g3  256 tok   54.1 tok/s  passes 87
+rep2 rewrite   greedy     125 tok   37.1 tok/s  passes 125
+rep2 rewrite   spec_g2    125 tok   58.3 tok/s  passes 42
+rep2 rewrite   spec_g3    125 tok   61.4 tok/s  passes 32
+rep2 rewrite   spec_g4    125 tok   62.1 tok/s  passes 25
+rep2 rewrite   spec_g6    125 tok   50.7 tok/s  passes 18
+rep2 rewrite   spec_g8    125 tok   50.8 tok/s  passes 14
+rep2 rewrite   look_k8n1  125 tok   45.5 tok/s  passes 29
+rep2 rewrite   look_k8n2  125 tok   47.4 tok/s  passes 35
+rep2 rewrite   look_k3n2  125 tok   55.4 tok/s  passes 49
+rep2 rewrite   sample_g3  125 tok   59.1 tok/s  passes 32
+rep2 creative  greedy     256 tok   49.1 tok/s  passes 256
+rep2 creative  spec_g2    256 tok   41.1 tok/s  passes 158
+rep2 creative  spec_g3    256 tok   33.7 tok/s  passes 151
+rep2 creative  spec_g4    256 tok   28.4 tok/s  passes 149
+rep2 creative  spec_g6    256 tok   20.1 tok/s  passes 147
+rep2 creative  spec_g8    254 tok   16.4 tok/s  passes 137
+rep2 creative  look_k8n1  256 tok   20.2 tok/s  passes 247
+rep2 creative  look_k8n2  256 tok   34.8 tok/s  passes 253
+rep2 creative  look_k3n2  256 tok   43.0 tok/s  passes 253
+rep2 creative  sample_g3  256 tok   35.4 tok/s  passes 133
+rep2 math      greedy     256 tok   45.4 tok/s  passes 256
+rep2 math      spec_g2    256 tok   53.7 tok/s  passes 110
+rep2 math      spec_g3    256 tok   53.1 tok/s  passes 90
+rep2 math      spec_g4    256 tok   50.0 tok/s  passes 80
+rep2 math      spec_g6    256 tok   39.7 tok/s  passes 72
+rep2 math      spec_g8    256 tok   31.5 tok/s  passes 63
+rep2 math      look_k8n1  256 tok   21.0 tok/s  passes 185
+rep2 math      look_k8n2  256 tok   32.2 tok/s  passes 203
+rep2 math      look_k3n2  256 tok   42.1 tok/s  passes 204
+rep2 math      sample_g3  256 tok   46.7 tok/s  passes 84
+rep2 code_edit greedy     165 tok   33.8 tok/s  passes 165
+rep2 code_edit spec_g2    165 tok   47.6 tok/s  passes 62
+rep2 code_edit spec_g3    165 tok   48.6 tok/s  passes 47
+rep2 code_edit spec_g4    165 tok   49.8 tok/s  passes 39
+rep2 code_edit spec_g6    165 tok   49.4 tok/s  passes 31
+rep2 code_edit spec_g8    165 tok   42.2 tok/s  passes 28
+rep2 code_edit look_k8n1  156 tok   26.7 tok/s  passes 72
+rep2 code_edit look_k8n2  165 tok   35.4 tok/s  passes 91
+rep2 code_edit look_k3n2  165 tok   43.7 tok/s  passes 103
+rep2 code_edit sample_g3  165 tok   51.0 tok/s  passes 46
+
+End-to-end tok/s (wall clock incl. prefill, median of 3); speedup vs from-scratch greedy
+
+| prompt | greedy | spec_g2 | spec_g3 | spec_g4 | spec_g6 | spec_g8 | look_k8n1 | look_k8n2 | look_k3n2 | sample_g3 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| code | 49.4 | 65.5 (1.32x) | 61.1 (1.23x) | 58.3 (1.18x) | 51.8 (1.05x) | 44.1 (0.89x) | 23.6 (0.48x) | 37.0 (0.75x) | 46.9 (0.95x) | 54.1 (1.09x) |
+| rewrite | 44.2 | 61.8 (1.40x) | 61.4 (1.39x) | 64.5 (1.46x) | 50.7 (1.15x) | 50.8 (1.15x) | 45.5 (1.03x) | 47.4 (1.07x) | 55.4 (1.26x) | 59.1 (1.34x) |
+| creative | 49.1 | 42.1 (0.86x) | 33.7 (0.69x) | 27.8 (0.57x) | 20.3 (0.41x) | 16.4 (0.33x) | 20.2 (0.41x) | 35.6 (0.72x) | 45.6 (0.93x) | 35.4 (0.72x) |
+| math | 45.6 | 58.8 (1.29x) | 53.1 (1.16x) | 50.0 (1.10x) | 39.7 (0.87x) | 33.2 (0.73x) | 21.0 (0.46x) | 34.5 (0.76x) | 49.5 (1.08x) | 54.0 (1.18x) |
+| code_edit | 42.2 | 55.4 (1.31x) | 48.6 (1.15x) | 50.7 (1.20x) | 49.4 (1.17x) | 42.2 (1.00x) | 29.0 (0.69x) | 36.3 (0.86x) | 43.7 (1.04x) | 51.0 (1.21x) |
+| **geo-mean** | **1.00x** | **1.22x** | **1.10x** | **1.05x** | **0.87x** | **0.76x** | **0.58x** | **0.82x** | **1.04x** | **1.09x** |
+
+alpha_hat (per-token acceptance) / tokens per target pass  (pooled over reps)
+
+| prompt | spec_g2 | spec_g3 | spec_g4 | spec_g6 | spec_g8 | look_k8n1 | look_k8n2 | look_k3n2 | sample_g3 |
+|---|---|---|---|---|---|---|---|---|---|
+| code | 0.86 / 2.59 | 0.85 / 3.12 | 0.85 / 3.66 | 0.86 / 4.49 | 0.86 / 5.12 | 0.34 / 1.26 | 0.47 / 1.15 | 0.45 / 1.13 | 0.82 / 3.00 |
+| rewrite | 1.00 / 2.98 | 0.99 / 3.91 | 1.00 / 5.00 | 1.00 / 6.94 | 1.00 / 8.93 | 0.91 / 4.31 | 0.93 / 3.57 | 0.92 / 2.55 | 0.99 / 3.91 |
+| creative | 0.43 / 1.62 | 0.43 / 1.70 | 0.42 / 1.72 | 0.43 / 1.74 | 0.46 / 1.85 | 0.07 / 1.04 | 0.10 / 1.01 | 0.12 / 1.01 | 0.47 / 1.82 |
+| math | 0.77 / 2.33 | 0.79 / 2.84 | 0.78 / 3.20 | 0.78 / 3.56 | 0.79 / 4.06 | 0.39 / 1.38 | 0.56 / 1.26 | 0.60 / 1.25 | 0.82 / 3.00 |
+| code_edit | 0.90 / 2.66 | 0.92 / 3.51 | 0.91 / 4.23 | 0.91 / 5.32 | 0.91 / 5.89 | 0.65 / 2.17 | 0.81 / 1.81 | 0.76 / 1.60 | 0.91 / 3.44 |
+
+Token-for-token identical to greedy? ('=' identical, else index of first differing token)
+
+| prompt | spec_g2 | spec_g3 | spec_g4 | spec_g6 | spec_g8 | look_k8n1 | look_k8n2 | look_k3n2 |
+|---|---|---|---|---|---|---|---|---|
+| code | = | = | = | = | = | = | = | = |
+| rewrite | = | = | = | = | = | = | = | = |
+| creative | = | = | = | = | 108 | 108 | 108 | = |
+| math | = | = | = | = | 83 | 84 | 83 | = |
+| code_edit | = | = | = | = | = | 3 | = | = |
+
+sample_g3 (rejection sampling): per prompt  measured alpha_hat | mean sum(min(p,q)) [theory for this method] | mean sum(p*q) [what sample-and-match would accept]
+
+| prompt | measured alpha_hat | E[sum min(p,q)] | E[sum p*q] |
+|---|---|---|---|
+| code | 0.819 | 0.828 | 0.816 |
+| rewrite | 0.989 | 0.987 | 0.987 |
+| creative | 0.475 | 0.474 | 0.430 |
+| math | 0.825 | 0.822 | 0.778 |
+| code_edit | 0.908 | 0.908 | 0.905 |

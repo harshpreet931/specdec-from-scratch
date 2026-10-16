@@ -1,0 +1,5 @@
+mlx==0.31.1
+mlx-lm==0.31.1
+numpy
+scipy
+matplotlib

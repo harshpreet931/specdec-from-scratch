@@ -1,0 +1,20 @@
+
+H100 SXM, BF16:  weights = 16.0 GB,  ridge point ~ 295 tokens per pass
+ tokens verified  memory ms  compute ms  time ms  vs 1 token    bound
+               1       4.82        0.02     4.82       1.00x   memory
+               2       4.82        0.03     4.82       1.00x   memory
+               4       4.82        0.07     4.82       1.00x   memory
+               5       4.82        0.08     4.82       1.00x   memory
+               8       4.82        0.13     4.82       1.00x   memory
+              16       4.82        0.27     4.82       1.00x   memory
+              64       4.82        1.07     4.82       1.00x   memory
+
+M4 Pro 20c GPU, 4-bit:  weights = 4.5 GB,  ridge point ~ 8 tokens per pass
+ tokens verified  memory ms  compute ms  time ms  vs 1 token    bound
+               1      16.98        2.04    16.98       1.00x   memory
+               2      16.98        4.08    16.98       1.00x   memory
+               4      16.98        8.17    16.98       1.00x   memory
+               5      16.98       10.21    16.98       1.00x   memory
+               8      16.98       16.34    16.98       1.00x   memory
+              16      16.98       32.68    32.68       1.93x  COMPUTE
+              64      17.01      130.93   130.93       7.71x  COMPUTE

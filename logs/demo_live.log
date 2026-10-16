@@ -1,0 +1,84 @@
+[1mSpeculative decoding on Apple M4 Pro[0m
+  target: mlx-community/Qwen3-8B-4bit
+  draft : mlx-community/Qwen3-0.6B-4bit   (guesses 2 tokens ahead)
+
+[2mmodels loaded + warmed up in 3.2s[0m
+
+[1mPrompt:[0m Write a Python function `merge_intervals(intervals)` that merges overlapping intervals. Include a docstring an...
+
+[1m[1] Big model alone[0m
+Here's a Python function `merge_intervals(intervals)` that merges overlapping intervals. It includes a docstring and three example test cases using `assert` statements.
+
+```python
+def merge_intervals(intervals):
+    """
+    Merges overlapping intervals.
+
+    Parameters:
+    intervals (list of list of int): A list of intervals, where each interval is a list of two integers [start, end].
+
+    Returns:
+    list of list of int: A list of merged, non-overlapping intervals, sorted by start time.
+
+    Example:
+    >>> merge_intervals([[1,3], [2,6], [8,10], [15,18]])
+    [[1, 6], [8, 10], [15, 18]]
+    """
+    if not intervals:
+        return []
+
+    # Sort intervals based on the start time
+    intervals.sort(key=lambda x: x[0])
+
+    merged = [intervals[0]]
+    for current in intervals[1:]:
+        last = merged[-1]
+        if current[0] <= last[1]:
+            # Overlapping, merge them
+            merged[-1] = [last[0], max(last[1], current[1])]
+        else:
+           
+
+[1m[2] Big model + draft model[0m  [2m(green = draft guess accepted)[0m
+[32mHere[0m[32m's[0m a[32m Python[0m[32m function[0m `[32mmerge[0m[32m_intervals[0m(int[32mervals[0m[32m)`[0m that[32m merges[0m[32m overlapping[0m intervals.[32m It[0m[32m includes[0m a[32m doc[0m[32mstring[0m and[32m three[0m[32m example[0m test[32m cases[0m[32m using[0m `[32massert[0m[32m`[0m statements[32m.
+
+[0m[32m```[0mpython[32m
+[0m[32mdef[0m merge[32m_intervals[0m[32m(int[0mervals[32m):
+[0m[32m   [0m """
+[32m   [0m[32m M[0merg[32mes[0m[32m overlapping[0m intervals.
+
+[32m   [0m[32m Parameters[0m:
+   [32m intervals[0m[32m ([0mlist[32m of[0m list of int[32m):[0m A[32m list[0m[32m of[0m intervals[32m,[0m where[32m each[0m[32m interval[0m is[32m a[0m[32m list[0m of[32m two[0m[32m integers[0m [[32mstart[0m[32m,[0m end[32m].
+
+[0m[32m   [0m Returns[32m:
+[0m[32m   [0m list[32m of[0m[32m list[0m of[32m int[0m[32m:[0m A[32m list[0m[32m of[0m merged,[32m non[0m[32m-over[0mlapping[32m intervals[0m, sorted[32m by[0m[32m start[0m time[32m.
+
+[0m[32m   [0m Example[32m:
+[0m[32m   [0m >>> merge[32m_intervals[0m[32m([[[0m1[32m,[0m3[32m],[0m[32m [[0m2[32m,[0m6[32m],[0m[32m [[0m8[32m,[0m[32m1[0m0[32m],[0m[32m [[0m15[32m,[0m[32m1[0m8[32m]])
+[0m[32m   [0m [[[32m1[0m[32m,[0m[32m 6[0m[32m],[0m [[32m8[0m[32m,[0m[32m 1[0m[32m0[0m],[32m [[0m[32m1[0m5[32m,[0m[32m[0m 1[32m8[0m[32m]]
+[0m   [32m """
+[0m[32m   [0m if[32m not[0m[32m intervals[0m:
+[32m       [0m[32m return[0m []
+
+[32m   [0m[32m #[0m Sort[32m intervals[0m based[32m on[0m the[32m start[0m[32m time[0m
+[32m   [0m[32m intervals[0m.sort[32m(key[0m[32m=lambda[0m x[32m:[0m[32m x[0m[[32m0[0m[32m])
+
+[0m    merged[32m =[0m [[32mint[0m[32mervals[0m[[32m0[0m[32m]]
+[0m   [32m for[0m current[32m in[0m[32m intervals[0m[[32m1[0m[32m:]:
+[0m        last =[32m merged[0m[32m[-[0m1[32m]
+[0m[32m       [0m if[32m current[0m[32m[[0m0[32m][0m[32m <=[0m last[32m[[0m[32m1[0m]:
+[32m           [0m[32m #[0m Over[32mlapping[0m,[32m merge[0m them[32m
+[0m[32m           [0m merged[32m[-[0m[32m1[0m][32m =[0m[32m [[0mlast[32m[[0m[32m0[0m],[32m max[0m[32m(last[0m[[32m1[0m[32m],[0m current[32m[[0m[32m1[0m])]
+[32m       [0m[32m else[0m:
+[32m           [0m
+
++--------------------------------------------------+
+|                           tokens    tok/s    time |
+| Big model alone              256     53.3    4.8s |
+| + draft (N=2)                256     73.7    3.5s |
++--------------------------------------------------+
+| [1mSpeedup                                     1.38x[0m |
+| Draft tokens accepted                 159 / 256  |
+| Tokens per big-model pass                    2.64 |
+| Output identical                              yes |
++--------------------------------------------------+

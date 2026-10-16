@@ -1,0 +1,21 @@
+[1mSpeculative decoding on Apple M4 Pro[0m
+  target: mlx-community/Qwen3-8B-4bit
+  draft : mlx-community/Qwen3-0.6B-4bit   (guesses 2 tokens ahead)
+
+[2mmodels loaded + warmed up in 3.2s[0m
+
+[1mPrompt:[0m Fix the spelling mistakes in the following paragraph. Return only the corrected paragraph, nothing else.
+
+Spec...
+
++--------------------------------------------------+
+|                           tokens    tok/s    time |
+| Big model alone              125     53.6    2.4s |
+| + draft (N=2)                125     84.9    1.5s |
++--------------------------------------------------+
+| [1mSpeedup                                     1.58x[0m |
+| Draft tokens accepted                  84 / 125  |
+| Tokens per big-model pass                    3.05 |
+| Output identical                              yes |
++--------------------------------------------------+
+[2mtok/s = median of 3 runs (mlx_lm generation tps, excludes prompt processing)[0m

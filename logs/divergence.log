@@ -1,0 +1,18 @@
+== 1. logit gap at each divergence (bf16 model, full-prefix forward pass) ==
+prompt      N  pos        baseline tok           spec tok logit gap top1-top2 gap
+creative    2   16              ' for'              ' to'    0.5000        0.2500
+creative    3   16              ' for'              ' to'    0.5000        0.2500
+creative    4   16              ' for'              ' to'    0.5000        0.2500
+creative    6   16              ' for'              ' to'    0.5000        0.2500
+creative    8   67                ' a'              ' fl'    0.1250        0.1250
+math        2   83                 ':'              ':\n'   -0.1250        0.1250
+math        3  220                ' ('               '**'    0.0000        0.0000
+math        4   84               ' **'             '  \n'    0.0000        0.0000
+math        6   84               ' **'             '  \n'    0.0000        0.0000
+math        8   84               ' **'             '  \n'    0.0000        0.0000
+code_edit   8    3              'from'              'def'    0.2500        0.2500
+
+== 2. same comparison with float params cast to float32 ==
+creative   (250 tok)  N=2: identical | N=3: identical | N=4: identical | N=6: identical | N=8: identical
+math       (256 tok)  N=2: identical | N=3: identical | N=4: identical | N=6: identical | N=8: identical
+code_edit  (165 tok)  N=2: identical | N=3: identical | N=4: identical | N=6: identical | N=8: identical

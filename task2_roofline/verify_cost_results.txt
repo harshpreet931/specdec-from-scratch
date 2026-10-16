@@ -1,0 +1,26 @@
+context = 293 tokens
+
+mlx-community/Qwen3-8B-4bit
+ k tokens  ms/pass  vs k=1  ms per token
+        1    21.37   1.00x         21.37
+        2    21.34   1.00x         10.67
+        3    28.45   1.33x          9.48
+        4    37.02   1.73x          9.26
+        5    45.34   2.12x          9.07
+        6    53.69   2.51x          8.95
+        8    70.37   3.29x          8.80
+       10    86.23   4.03x          8.62
+       12    89.25   4.18x          7.44
+       16    89.29   4.18x          5.58
+       24    90.55   4.24x          3.77
+       32    90.26   4.22x          2.82
+       64   161.68   7.56x          2.53
+
+mlx-community/Qwen3-0.6B-4bit
+ k tokens  ms/pass  vs k=1  ms per token
+        1     3.81   1.00x          3.81
+        2     3.93   1.03x          1.96
+        4     5.40   1.42x          1.35
+        8     8.32   2.18x          1.04
+
+cost ratio c = draft(1 tok) / target(1 tok) = 0.178
